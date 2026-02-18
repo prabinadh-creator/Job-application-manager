@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Manager</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Job App Manager</h1>
+            <span class="version">v1.0</span>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="extract">Extract Job</button>
+            <button class="tab-btn" data-tab="applications">My Apps</button>
+            <button class="tab-btn" data-tab="settings">Settings</button>
+        </div>
+
+        <!-- Extract Job Tab -->
+        <div id="extract" class="tab-content active">
+            <div class="section">
+                <h2>🔍 Detect Job Post</h2>
+                <button id="detectBtn" class="btn btn-primary">🔎 Detect Job on Page</button>
+                <button id="manualEntryBtn" class="btn btn-secondary">✏️ Manual Entry</button>
+            </div>
+
+            <div id="detectedJobInfo" style="display: none;">
+                <h3>Detected Job Information</h3>
+                <div class="form-group">
+                    <label>Job Title</label>
+                    <input type="text" id="detectedJobTitle" placeholder="Job title">
+                </div>
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" id="detectedCompany" placeholder="Company name">
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="detectedLocation" placeholder="Location">
+                </div>
+                <div class="form-group">
+                    <label>Salary</label>
+                    <input type="text" id="detectedSalary" placeholder="Salary range">
+                </div>
+                <div class="form-group">
+                    <label>Job URL</label>
+                    <input type="url" id="detectedJobUrl" placeholder="Job URL">
+                </div>
+                <div class="form-group">
+                    <label>Job Description</label>
+                    <textarea id="detectedDescription" placeholder="Job description" rows="4"></textarea>
+                </div>
+                <button id="generateCoverBtn" class="btn btn-secondary">✨ Generate Cover Letter</button>
+            </div>
+
+            <div id="generatedCoverLetter" style="display: none;">
+                <h3>Generated Cover Letter</h3>
+                <textarea id="coverLetterText" placeholder="Cover letter will appear here..." rows="6"></textarea>
+            </div>
+
+            <div id="manualEntryForm" style="display: none;">
+                <h3>Manual Job Entry</h3>
+                <div class="form-group">
+                    <label>Job Title *</label>
+                    <input type="text" id="manualJobTitle" placeholder="Job title" required>
+                </div>
+                <div class="form-group">
+                    <label>Company *</label>
+                    <input type="text" id="manualCompany" placeholder="Company name" required>
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="manualLocation" placeholder="Location">
+                </div>
+                <div class="form-group">
+                    <label>Salary</label>
+                    <input type="text" id="manualSalary" placeholder="Salary range">
+                </div>
+                <div class="form-group">
+                    <label>Job URL</label>
+                    <input type="url" id="manualJobUrl" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label>Job Description</label>
+                    <textarea id="manualDescription" placeholder="Paste job description here..." rows="4"></textarea>
+                </div>
+                <button id="generateCoverBtn2" class="btn btn-secondary">✨ Generate Cover Letter</button>
+            </div>
+
+            <div id="manualGeneratedCover" style="display: none;">
+                <h3>Generated Cover Letter</h3>
+                <textarea id="manualCoverLetterText" placeholder="Cover letter will appear here..." rows="6"></textarea>
+            </div>
+
+            <button id="saveAppBtn" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">💾 Save to App Manager</button>
+            <div id="message"></div>
+        </div>
+
+        <!-- Applications Tab -->
+        <div id="applications" class="tab-content">
+            <div class="section">
+                <h2>📊 Recent Applications</h2>
+                <div id="appsList" class="apps-list"></div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings" class="tab-content">
+            <div class="section">
+                <h2>⚙️ Settings</h2>
+                <div class="form-group">
+                    <label>Default Storage Location</label>
+                    <select id="storageLocation">
+                        <option value="local">Local (This Browser)</option>
+                        <option value="sync">Cloud Sync (Cross-Browser)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Auto-Detect Jobs</label>
+                    <input type="checkbox" id="autoDetect" checked>
+                    <small>Automatically highlight jobs on supported websites</small>
+                </div>
+                <button id="exportBtn" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">📥 Export Data</button>
+                <button id="clearDataBtn" class="btn btn-danger" style="width: 100%; margin-top: 0.5rem;">🗑️ Clear All Data</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
