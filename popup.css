@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 500px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 1.3rem;
+}
+
+.version {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.tabs {
+    display: flex;
+    background: white;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: #6b7280;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.tab-btn:hover {
+    background: #f3f4f6;
+}
+
+.tab-content {
+    display: none;
+    padding: 1.5rem;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.section {
+    margin-bottom: 1.5rem;
+}
+
+.section h2 {
+    color: #667eea;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.section h3 {
+    color: #374151;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.3rem;
+    color: #6b7280;
+    font-size: 0.8rem;
+}
+
+.btn {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f3f4f6;
+    color: #667eea;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background: #e5e7eb;
+}
+
+.btn-danger {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.btn-danger:hover {
+    background: #fecaca;
+}
+
+#message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+}
+
+#message.success {
+    display: block;
+    background: #d1fae5;
+    color: #065f46;
+    border-left: 4px solid #10b981;
+}
+
+#message.error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid #dc2626;
+}
+
+.apps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.app-item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.app-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+.app-item h4 {
+    color: #667eea;
+    margin-bottom: 0.3rem;
+}
+
+.app-item p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 0.2rem;
+}
+
+.app-item .status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.status.draft {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.status.applied {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status.interview {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.empty-state {
+    text-align: center;
+    color: #6b7280;
+    padding: 2rem 1rem;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+}
