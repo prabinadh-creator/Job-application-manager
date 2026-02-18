@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Job Application Manager",
+  "version": "1.0.0",
+  "description": "Save and manage job applications from any website with AI-powered cover letters",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/*",
+        "https://seek.com.au/*",
+        "https://www.seek.com.au/*",
+        "https://www.jora.com.au/*",
+        "https://jora.com.au/*",
+        "https://www.indeed.com/*",
+        "https://www.indeed.com.au/*",
+        "https://*/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icons": {
+      "16": "images/icon-16.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  }
+}
